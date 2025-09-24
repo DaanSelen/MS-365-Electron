@@ -81,7 +81,7 @@
     "electron-prompt": "^1.7.0",
     "electron-store": "^10.0.0",
     "electron-updater": "^6.6.2",
-    "node-gyp": "^11.0.0"
+    "node-gyp": "^11.4.2"
   },
   "packageManager": "yarn@4.7.0"
 }
