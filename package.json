@@ -17,7 +17,7 @@
     "extraFiles": [
       "LICENSE"
     ],
-    "appId": "com.agampreet.ms-365-electron",
+    "appId": "com.daanselen.ms-365-electron",
     "productName": "MS-365-Electron",
     "artifactName": "MS-365-Electron-v${version}-${os}-${arch}.${ext}",
     "mac": {
@@ -47,13 +47,9 @@
       "category": "Office",
       "icon": "./assets/icons/png",
       "executableName": "ms-365-electron",
-      "maintainer": "Agampreet Singh <agam778@zohomail.in>",
+      "maintainer": "Daan Selen <dselen@nerthus.nl>",
       "target": [
-        "snap",
-        "deb",
-        "rpm",
-        "AppImage",
-        "tar.gz"
+        "deb"
       ]
     },
     "directories": {
