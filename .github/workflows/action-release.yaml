@@ -8,6 +8,9 @@ on:
     tags:
       - '*'
 
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   action-release:
     runs-on: ubuntu-latest
