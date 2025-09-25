@@ -32,5 +32,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: release-files
+          name: packages
           path: ./release/*.deb
