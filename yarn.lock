@@ -12,62 +12,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cliqz/adblocker-content@npm:^1.34.0":
-  version: 1.34.0
-  resolution: "@cliqz/adblocker-content@npm:1.34.0"
-  dependencies:
-    "@cliqz/adblocker-extended-selectors": "npm:^1.34.0"
-  checksum: 10c0/c25a6faac69c4b2514ca0eaff8ebb4abbcbea4859cb091158206e1d8851f36ff561c398d2f543191a4c59b632554a02088033cb2b0f0e20b8beb44b242ad52df
-  languageName: node
-  linkType: hard
-
-"@cliqz/adblocker-electron-preload@npm:^1.34.0":
-  version: 1.34.0
-  resolution: "@cliqz/adblocker-electron-preload@npm:1.34.0"
-  dependencies:
-    "@cliqz/adblocker-content": "npm:^1.34.0"
-  peerDependencies:
-    electron: ">11"
-  checksum: 10c0/5bb28ac6c079d8feb51565d9ed8cff112795b198afcc35b158bd88f69a67dfe96fc3973f6dac67624a391d84f6e8c5ace6566363f11d99ab20d9dd036052e21a
-  languageName: node
-  linkType: hard
-
-"@cliqz/adblocker-electron@npm:^1.26.6":
-  version: 1.34.0
-  resolution: "@cliqz/adblocker-electron@npm:1.34.0"
-  dependencies:
-    "@cliqz/adblocker": "npm:^1.34.0"
-    "@cliqz/adblocker-electron-preload": "npm:^1.34.0"
-    tldts-experimental: "npm:^6.0.14"
-  peerDependencies:
-    electron: ">11"
-  checksum: 10c0/8179caa67a41829f55cde11104cf1a2eb8ffe6f943f695fd3da5db2e3aaa52de0fbe53ae3a64e526c4514334ffa96b14ff69d16a22148cbea1a90de4b514bcd2
-  languageName: node
-  linkType: hard
-
-"@cliqz/adblocker-extended-selectors@npm:^1.34.0":
-  version: 1.34.0
-  resolution: "@cliqz/adblocker-extended-selectors@npm:1.34.0"
-  checksum: 10c0/bc6a45e2ff8bb698906e331004467857c467c0abd669acc827f7cae22ece4cc4403fd095003f33016fa30275e938e8eee1ad17ebbf23c92cb8a4c5a2fd6440bb
-  languageName: node
-  linkType: hard
-
-"@cliqz/adblocker@npm:^1.34.0":
-  version: 1.34.0
-  resolution: "@cliqz/adblocker@npm:1.34.0"
-  dependencies:
-    "@cliqz/adblocker-content": "npm:^1.34.0"
-    "@cliqz/adblocker-extended-selectors": "npm:^1.34.0"
-    "@remusao/guess-url-type": "npm:^1.3.0"
-    "@remusao/small": "npm:^1.2.1"
-    "@remusao/smaz": "npm:^1.9.1"
-    "@types/chrome": "npm:^0.0.278"
-    "@types/firefox-webext-browser": "npm:^120.0.0"
-    tldts-experimental: "npm:^6.0.14"
-  checksum: 10c0/b23288bbf89f76e515516127cf5550a6739ca7d166bbd942128e46bd46b149b6b6a41cd44fe3607e0ef4197315a30a65aab9d89c2662e25b74367131873e71e5
-  languageName: node
-  linkType: hard
-
 "@develar/schema-utils@npm:~2.6.5":
   version: 2.6.5
   resolution: "@develar/schema-utils@npm:2.6.5"
@@ -377,6 +321,70 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ghostery/adblocker-content@npm:^2.11.6":
+  version: 2.11.6
+  resolution: "@ghostery/adblocker-content@npm:2.11.6"
+  dependencies:
+    "@ghostery/adblocker-extended-selectors": "npm:^2.11.6"
+  checksum: 10c0/81110ead9e8d8a1fd267434757ef06368f10d55eede510e3d910fe2ea7a5a07d18f7ad9523b52d82df06beb3997b7e6d134d91cb54d9d54a18945969e1d24db2
+  languageName: node
+  linkType: hard
+
+"@ghostery/adblocker-electron-preload@npm:^2.11.6":
+  version: 2.11.6
+  resolution: "@ghostery/adblocker-electron-preload@npm:2.11.6"
+  dependencies:
+    "@ghostery/adblocker-content": "npm:^2.11.6"
+  peerDependencies:
+    electron: ">11"
+  checksum: 10c0/5db5f854dad1254db74ab8fb69a9d85ccefe01ea2302c5acded7bc6ac238b05639246cfe90268135b7d6227723aa82f92d3478356a0117dc9d30b6da0ba6b737
+  languageName: node
+  linkType: hard
+
+"@ghostery/adblocker-electron@npm:^2.11.6":
+  version: 2.11.6
+  resolution: "@ghostery/adblocker-electron@npm:2.11.6"
+  dependencies:
+    "@ghostery/adblocker": "npm:^2.11.6"
+    "@ghostery/adblocker-electron-preload": "npm:^2.11.6"
+    tldts-experimental: "npm:^7.0.12"
+  peerDependencies:
+    electron: ">11"
+  checksum: 10c0/834bd8840df277979d670e1a4426c64f48df74daef32a84c16d016d237bd6bd346a406202b2ff6e04cf479531cb2a96b55a48638965c175a599045c0e65c2af0
+  languageName: node
+  linkType: hard
+
+"@ghostery/adblocker-extended-selectors@npm:^2.11.6":
+  version: 2.11.6
+  resolution: "@ghostery/adblocker-extended-selectors@npm:2.11.6"
+  checksum: 10c0/38451651ef6c666c3a71c2a315cbf0dad72c6df079a75f3ec44eeafa4457d84599fc84fc3b9c30f46b0476a58959d9d9803142a49db14bcd667a912a7f5b3eb2
+  languageName: node
+  linkType: hard
+
+"@ghostery/adblocker@npm:^2.11.6":
+  version: 2.11.6
+  resolution: "@ghostery/adblocker@npm:2.11.6"
+  dependencies:
+    "@ghostery/adblocker-content": "npm:^2.11.6"
+    "@ghostery/adblocker-extended-selectors": "npm:^2.11.6"
+    "@ghostery/url-parser": "npm:^1.3.0"
+    "@remusao/guess-url-type": "npm:^2.1.0"
+    "@remusao/small": "npm:^2.1.0"
+    "@remusao/smaz": "npm:^2.2.0"
+    tldts-experimental: "npm:^7.0.12"
+  checksum: 10c0/2a6659ceeec0a6601e6bfede4a2bd6c93f5c267268098a39bf948ba16959c7f556b3bf7b41f1c4a5eea11888770fcf644063c4c297afa6701447b0872eb69668
+  languageName: node
+  linkType: hard
+
+"@ghostery/url-parser@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@ghostery/url-parser@npm:1.3.0"
+  dependencies:
+    tldts-experimental: "npm:^7.0.8"
+  checksum: 10c0/e252393bebddf33a1c39235448eaebd5e53a6a2e264a28c363ebe89a5cd401f2317e2c31cc43c2a87b83fa1f47e0137c3e1e363c56aa285dee34912f3ad605f7
+  languageName: node
+  linkType: hard
+
 "@humanfs/core@npm:^0.19.1":
   version: 0.19.1
   resolution: "@humanfs/core@npm:0.19.1"
@@ -578,50 +586,50 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remusao/guess-url-type@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "@remusao/guess-url-type@npm:1.3.0"
-  checksum: 10c0/a9d5b63ad2f5822a744c24b9fd7867ee342eb403f28330bbdcc3522762ab61b566578830e5ab8e6c5c0d183a311461b34392e7f7b5f15db0d0b75498a7b52b9c
+"@remusao/guess-url-type@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@remusao/guess-url-type@npm:2.1.0"
+  checksum: 10c0/b33d27cb14a1354a3af5d6ac59ada8069a0e093d9617a3d3aa905619783073325245d50f2f0678803779b7501c499fe3a1118cbb23a77f7e9fe1e139c3ab6218
   languageName: node
   linkType: hard
 
-"@remusao/small@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@remusao/small@npm:1.2.1"
-  checksum: 10c0/8e192cc77331362fa50e199a5d30e3ac6241b16a80bcd8225694786067742d65a43ca7ec7999b2289b40870c4efaa29ba5bcbd59f12e5c85e559cd094093de41
+"@remusao/small@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@remusao/small@npm:2.1.0"
+  checksum: 10c0/79e915c59f052dce7735e38d0fcd49657f40947813b0eb1984a9ca632c88fce84c2fd62e61632354a61d1898f895f5a476b7d41d39e8f773a5c11e96ec7e6098
   languageName: node
   linkType: hard
 
-"@remusao/smaz-compress@npm:^1.9.1":
-  version: 1.9.1
-  resolution: "@remusao/smaz-compress@npm:1.9.1"
+"@remusao/smaz-compress@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@remusao/smaz-compress@npm:2.2.0"
   dependencies:
-    "@remusao/trie": "npm:^1.4.1"
-  checksum: 10c0/cbdf477aaaad7c1cabbf71dede373b3a125b9b8448edf106099bb5596f4eedec3b29db01358a937edff9317a788b626959cb16d7ac3b074dde4e3fa73b879d41
+    "@remusao/trie": "npm:^2.1.0"
+  checksum: 10c0/116dbc7d345cc5c3be3a238301d4352c5103050e6b49dab33cfe1125af1f095cfe16f2d4363fe37c94f7cec3e36be1ce3c64e303074dc5439ab98cf585faaa11
   languageName: node
   linkType: hard
 
-"@remusao/smaz-decompress@npm:^1.9.1":
-  version: 1.9.1
-  resolution: "@remusao/smaz-decompress@npm:1.9.1"
-  checksum: 10c0/99a11fecffd42044ec5f906d313bc41435178ee6cae92cbb2cd9d659f0bb9d6a281d4d104aa0c6a6429e5ec9471efe13d3d1df41060072b80ce36020b6b4c467
+"@remusao/smaz-decompress@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@remusao/smaz-decompress@npm:2.2.0"
+  checksum: 10c0/b835f1f8f272fdb9ec6229adf98d50725df35fe9d7d4b155146b0139c93cf35d772cf01f4a5b27dad291971fae93831cb10fd72e2f95f0a1d6e78eae677d1569
   languageName: node
   linkType: hard
 
-"@remusao/smaz@npm:^1.9.1":
-  version: 1.9.1
-  resolution: "@remusao/smaz@npm:1.9.1"
+"@remusao/smaz@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@remusao/smaz@npm:2.2.0"
   dependencies:
-    "@remusao/smaz-compress": "npm:^1.9.1"
-    "@remusao/smaz-decompress": "npm:^1.9.1"
-  checksum: 10c0/358463ec9eb12f8ffa442128da9d2ecd174f3bb591ff465727a6e567d78d90fcdd76b4da4db549373c9badc30d9ad156d1ce4c1a811f4a70d9a764cb98090101
+    "@remusao/smaz-compress": "npm:^2.2.0"
+    "@remusao/smaz-decompress": "npm:^2.2.0"
+  checksum: 10c0/d2e6424662de6128786020055789e1ee0c2eb352f2967f9bb0902f168b60c1eef40f5c76443c14ded1eff0987f14c849a6188d6d2a8e858a7e3b2004bb39fd87
   languageName: node
   linkType: hard
 
-"@remusao/trie@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "@remusao/trie@npm:1.4.1"
-  checksum: 10c0/9d4527f1c3b7c8eb16956e51ec73a87dbe89f4e9de992e520e2f4b7a55fa5ac515eb181b46fc3cf0d380270c3449d72b3051d7ecd62ba797e5ac6a00af61692b
+"@remusao/trie@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@remusao/trie@npm:2.1.0"
+  checksum: 10c0/d5dbbe5eba140713c960037e20f7f76a0409aad76537513129c8a23ae34f20382f259f261f30419ce2993eb78207518cb4f136e80f20c1d62861c318c06f8296
   languageName: node
   linkType: hard
 
@@ -681,16 +689,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chrome@npm:^0.0.278":
-  version: 0.0.278
-  resolution: "@types/chrome@npm:0.0.278"
-  dependencies:
-    "@types/filesystem": "npm:*"
-    "@types/har-format": "npm:*"
-  checksum: 10c0/8544ecaa52a6c1e4cb037a2abca711519ce9eff8862c487667028341b6d4843cbd7beb9adf393045feace35f3f932f0557e81561e5b74fd18a477a1219b911f0
-  languageName: node
-  linkType: hard
-
 "@types/debug@npm:^4.1.6":
   version: 4.1.12
   resolution: "@types/debug@npm:4.1.12"
@@ -707,42 +705,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/filesystem@npm:*":
-  version: 0.0.36
-  resolution: "@types/filesystem@npm:0.0.36"
-  dependencies:
-    "@types/filewriter": "npm:*"
-  checksum: 10c0/3ebec32f0494b0a2612187d148e9f253ff55672c53f566d9a1e6d891eb6e2372df93c252b594b2775bc53e6660c4c37fdb05dc1b26e72b60a31010da8e1f7317
-  languageName: node
-  linkType: hard
-
-"@types/filewriter@npm:*":
-  version: 0.0.33
-  resolution: "@types/filewriter@npm:0.0.33"
-  checksum: 10c0/363ef9a658a961ceae04f52934562e4ebdcdc3a2564dd8544f593d77113c16574938b6ba4fea0bee418c37bda0668c1e03dfedb6adf00d55853f51fb3a59247b
-  languageName: node
-  linkType: hard
-
-"@types/firefox-webext-browser@npm:^120.0.0":
-  version: 120.0.3
-  resolution: "@types/firefox-webext-browser@npm:120.0.3"
-  checksum: 10c0/a1865fb1b0066940f62953bb5e75bdbf947c1f24cb0a847adce76594b7a626075d7f5679563c71cc2e95b10662be56fe197277a3aa1d1540d2e60528c8eeb79c
-  languageName: node
-  linkType: hard
-
 "@types/fs-extra@npm:9.0.13, @types/fs-extra@npm:^9.0.11":
   version: 9.0.13
   resolution: "@types/fs-extra@npm:9.0.13"
   dependencies:
     "@types/node": "npm:*"
   checksum: 10c0/576d4e9d382393316ed815c593f7f5c157408ec5e184521d077fcb15d514b5a985245f153ef52142b9b976cb9bd8f801850d51238153ebd0dc9e96b7a7548588
-  languageName: node
-  linkType: hard
-
-"@types/har-format@npm:*":
-  version: 1.2.15
-  resolution: "@types/har-format@npm:1.2.15"
-  checksum: 10c0/43ede55c3947e5cf59561f165930dc2eb3ae983fd162980cdc7274be1e7f528a6f77e65fee9a02a20d91b09bde10bed832b0470724f5c744ef6669015d00564e
   languageName: node
   linkType: hard
 
@@ -3916,7 +3884,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ms-365-electron@workspace:."
   dependencies:
-    "@cliqz/adblocker-electron": "npm:^1.26.6"
+    "@ghostery/adblocker-electron": "npm:^2.11.6"
     "@xhayper/discord-rpc": "npm:^1.0.21"
     axios: "npm:^1.12.2"
     check-internet-connected: "npm:^2.0.6"
@@ -5031,19 +4999,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.1.19":
-  version: 6.1.19
-  resolution: "tldts-core@npm:6.1.19"
-  checksum: 10c0/113c6073ce9fd656f14666df2b08171d59b8d11fc2dfc3cdf802580bc6598a6b7fd5fa6641c6a49e7a0245afca7df10c9b2513f5ea7502be8561142adaa0488f
+"tldts-core@npm:^7.0.16":
+  version: 7.0.16
+  resolution: "tldts-core@npm:7.0.16"
+  checksum: 10c0/f9a8eee2c061d2defc5ba8e9f46a0b0657a07f15761ad129e930523ce9d6ef283a86ab9b38e01d113eb77c5b005820cbff0270d2a601190e71342a1e0bb9ea12
   languageName: node
   linkType: hard
 
-"tldts-experimental@npm:^6.0.14":
-  version: 6.1.19
-  resolution: "tldts-experimental@npm:6.1.19"
+"tldts-experimental@npm:^7.0.12, tldts-experimental@npm:^7.0.8":
+  version: 7.0.16
+  resolution: "tldts-experimental@npm:7.0.16"
   dependencies:
-    tldts-core: "npm:^6.1.19"
-  checksum: 10c0/a65f1719bf25a14c0279292a9b54b50ed6e55ede508913e5aabfe9eb32a0fee1c9414301f60d69781d76d780cfb0a20ed04b03d2bb3629ab699d4f299bd3c2eb
+    tldts-core: "npm:^7.0.16"
+  checksum: 10c0/f35b5ca621acd4d3225a1ceb0f706ee0596b1f3a51443ef9399f0678b2b44db2e677bcaa77aa89443d66d1ae3e3b170fb52429774311ca768ea429feb31db964
   languageName: node
   linkType: hard
 
