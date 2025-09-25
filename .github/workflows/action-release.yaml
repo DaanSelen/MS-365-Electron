@@ -9,7 +9,7 @@ on:
       - '*'
 
 jobs:
-  branch-release:
+  action-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
