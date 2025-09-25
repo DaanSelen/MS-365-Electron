@@ -58,6 +58,7 @@
   },
   "scripts": {
     "start": "electron .",
+    "build": "electron-builder",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
