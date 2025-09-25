@@ -5,6 +5,7 @@
 flatpak-node-generator.py
 generated-sources.json
 .yarn/*
+package-lock.json
 !.yarn/cache
 !.yarn/patches
 !.yarn/plugins

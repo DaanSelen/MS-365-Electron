@@ -1,0 +1,33 @@
+name: Build/release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+    tags:
+      - '*'
+
+jobs:
+  branch-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      - name: Build the app
+        run: |
+          npm install
+          npm run build
+        shell: bash
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-files
+          path: ./release
