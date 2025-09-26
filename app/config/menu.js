@@ -1,6 +1,6 @@
 import { dialog, BrowserWindow, ShareMenu, clipboard } from "electron";
 import { getValue, setValue } from "./store.js";
-import { ElectronBlocker } from "@cliqz/adblocker-electron";
+import { ElectronBlocker } from "@ghostery/adblocker-electron";
 import { clearActivity, setActivity } from "./rpc.js";
 import prompt from "electron-prompt";
 
