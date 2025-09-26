@@ -19,13 +19,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      - name: Enable Corepack before setting up Node
+      - name: Enable Corepack for Yarn
         run: corepack enable
 
-      - name: Install Node.js, NPM
+      - name: Install NodeJS and NPM
         uses: actions/setup-node@v5
         with:
           node-version: latest
+
+      - name: Install build dependencies not present
+        run: |
+          apt-get install -y rpm flatpak-builder dpkg
 
       - name: Install dependencies
         run: |
