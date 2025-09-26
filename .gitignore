@@ -13,3 +13,4 @@ package-lock.json
 !.yarn/sdks
 !.yarn/versions
 *.lock
+.vscode

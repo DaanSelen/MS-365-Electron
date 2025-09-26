@@ -9,8 +9,7 @@ on:
       - '*'
 
 env:
-  VERSION: "v2.1.1"
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  VERSION: "v0.1.0"
   YARN_URL: "https://github.com/yarnpkg/yarn/releases/download/v1.22.22/yarn-1.22.22.js"
 
 jobs:
@@ -37,20 +36,17 @@ jobs:
           yarn build
 
       - name: Release
-        uses: softprops/action-gh-release@v2
+        uses: akkuman/gitea-release-action@v1
         if: github.ref_type == 'tag'
         with:
           files: |
             ./release/*.deb
+            ./release/*.rpm
+            ./release/*.flatpak
             ./release/latest-linux.yml
-          make_latest: "true"
-          generate_release_notes: true
-          token: ${{ secrets.GITHUB_TOKEN }}
-          repository: "DaanSelen/MS-365-Electron"
+          server_url: ${{ gitea.server_url }}
+          token: ${{ secrets.GITEA_TOKEN }}
+          repository: "DaanSelen/ms365-electron-sandbox"
           tag_name: "${{ env.VERSION }}"
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: packages
-          path: ./release/*.deb
+          name: "${{ env.VERSION }}"
+          sha256sum: true
