@@ -29,8 +29,17 @@ jobs:
 
       - name: Install build dependencies not present
         run: |
-          apt-get update
-          apt-get install -y rpm flatpak-builder dpkg
+          mv /etc/apt/sources.list.d/microsoft-prod.list /etc/apt/sources.list.d/microsoft-prod.list.disabled
+
+          until apt-get update; do
+            echo -e "-----\napt-get update failed, retrying in 1s...\n-----"
+            sleep 1s
+          done
+
+          apt-get install -y \
+            dpkg \
+            flatpak-builder \
+            rpm
 
       - name: Install dependencies
         run: |
