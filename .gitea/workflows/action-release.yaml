@@ -45,7 +45,7 @@ jobs:
             ./release/*.flatpak
             ./release/latest-linux.yml
           server_url: ${{ gitea.server_url }}
-          token: ${{ secrets.GITEA_TOKEN }}
+          token: ${{ secrets.GITEA_TOKEN }} || ${{ secrets.GITHUB_TOKEN }}
           repository: "DaanSelen/ms365-electron-sandbox"
           tag_name: "${{ env.VERSION }}"
           name: "${{ env.VERSION }}"
