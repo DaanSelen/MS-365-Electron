@@ -29,6 +29,7 @@ jobs:
 
       - name: Install build dependencies not present
         run: |
+          apt-get update
           apt-get install -y rpm flatpak-builder dpkg
 
       - name: Install dependencies
