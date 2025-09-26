@@ -8,7 +8,7 @@ const { autoUpdater } = updaterpkg;
 export async function checkForUpdates() {
   try {
     const res = await axios.get(
-      "https://api.github.com/repos/agam778/MS-365-Electron/releases/latest"
+      "https://api.github.com/repos/DaanSelen/MS-365-Electron/releases/latest"
     );
     const data = res.data;
     const currentVersion = "v" + app.getVersion();
@@ -35,7 +35,7 @@ export async function checkForUpdates() {
           buttons: ["Download", "Close"],
         });
         if (updatedialog === 0) {
-          shell.openExternal("https://github.com/agam778/MS-365-Electron/releases/latest");
+          shell.openExternal("https://github.com/DaanSelen/MS-365-Electron/releases/latest");
         }
       }
     } else {

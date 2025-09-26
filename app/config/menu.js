@@ -491,7 +491,7 @@ const menulayout = [
             {
               label: "About MS-365-Electron",
               click: async () => {
-                await openExternalLink("https://github.com/agam778/MS-365-Electron");
+                await openExternalLink("https://github.com/DaanSelen/MS-365-Electron");
               },
             },
             {
@@ -524,7 +524,7 @@ const menulayout = [
             {
               label: "About MS-365-Electron",
               click: async () => {
-                await openExternalLink("https://github.com/agam778/MS-365-Electron");
+                await openExternalLink("https://github.com/DaanSelen/MS-365-Electron");
               },
             },
             {

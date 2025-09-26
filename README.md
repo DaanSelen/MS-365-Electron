@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/agam778/MS-365-Electron/blob/main/assets/banner.png?raw=true" alt="Credits: "></p>
+<p align="center"><img src="https://DaanSelen/MS-365-Electron/blob/main/assets/banner.png?raw=true" alt="Credits: "></p>
 <p align="center">Thanks to <a href="https://t.me/NextWorksGFX">@NextWorksGFX</a> for this amazing banner!</p>
 <p align="center">Unofficial Microsoft 365 Web Desktop Wrapper made with Electron</p>
 
@@ -9,17 +9,17 @@
 <a href="https://electronjs.org">
  <img align="center" src="https://img.shields.io/badge/Developed%20With-Electron-red?logo=Electron&logoColor=white&style=flat">  
  </a>
-<a href="https://github.com/agam778/MS-365-Electron/blob/main/LICENSE">
+<a href="https://DaanSelen/MS-365-Electron/blob/main/LICENSE">
  <img align="center" src="https://img.shields.io/github/license/agam778/MS-365-Electron?style=flat">  
  </a>
-<a  href="https://github.com/agam778/MS-365-Electron/releases/">
+<a  href="https://DaanSelen/MS-365-Electron/releases/">
  <img align="center" src="https://img.shields.io/github/v/release/agam778/MS-365-Electron?label=Release&logo=github&style=style=flat&color=blue">  
  </a>
-<a href="https://github.com/agam778/MS-365-Electron/releases/">
+<a href="https://DaanSelen/MS-365-Electron/releases/">
  <img align="center" src="https://img.shields.io/github/downloads/agam778/MS-365-Electron/total?label=Downloads&style=style=flat">
  </a>
- <a href="https://github.com/agam778/MS-365-Electron/actions/workflows/build.yml">
-  <img align="center" src="https://github.com/agam778/MS-365-Electron/actions/workflows/build.yml/badge.svg">
+ <a href="https://DaanSelen/MS-365-Electron/actions/workflows/build.yml">
+  <img align="center" src="https://DaanSelen/MS-365-Electron/actions/workflows/build.yml/badge.svg">
  </a>
 </p>
 
@@ -73,7 +73,7 @@ Supported Platforms
 - Discord RPC
 - Dynamic Icons:
   - For macOS: App's icon in dock changes according to the app you've opened [[Preview]](https://github-production-user-asset-6210df.s3.amazonaws.com/68941022/245203309-3d0dfc1b-02e9-43a8-85d7-9493a2b86b56.mp4)
-  - For Windows: Sets overlay icon [[Preview]](https://github.com/agam778/MS-365-Electron/assets/68941022/791b661b-2b7d-43a6-96df-ee9c30c9b18a)
+  - For Windows: Sets overlay icon [[Preview]](https://DaanSelen/MS-365-Electron/assets/68941022/791b661b-2b7d-43a6-96df-ee9c30c9b18a)
   - For Linux: Nothing, yet
 - Block Ads and Trackers within the app, preventing ads in websites like Outlook
 - Directly open apps from the menu
@@ -88,7 +88,7 @@ Supported Platforms
 
 For Installing this app on Windows:
 
-1) Visit the [Releases](https://github.com/agam778/MS-365-Electron/releases) page
+1) Visit the [Releases](https://DaanSelen/MS-365-Electron/releases) page
 2) Scroll down and click the `MS-365-Electron-vx.x.x-win-x64.exe` file. The Setup file will start downloading.
 3) After it downloads, click on the file and proceed with the Installation. You can choose whether to install for only you or all the users on the PC. You can always start the app from Start Menu or from the Desktop Shortcut.
 
@@ -96,8 +96,8 @@ For Installing this app on Windows:
 
 <details>
 <summary>Click to expand</summary>
-<img src="https://github.com/agam778/MS-365-Electron/blob/main/assets/screenshots/windows_1.png?raw=true" alt="Windows Preview - 1">
-<img src="https://github.com/agam778/MS-365-Electron/blob/main/assets/screenshots/windows_2.png?raw=true" alt="Windows Preview - 2">
+<img src="https://DaanSelen/MS-365-Electron/blob/main/assets/screenshots/windows_1.png?raw=true" alt="Windows Preview - 1">
+<img src="https://DaanSelen/MS-365-Electron/blob/main/assets/screenshots/windows_2.png?raw=true" alt="Windows Preview - 2">
 </details>
 
 # macOS
@@ -106,7 +106,7 @@ For Installing this app on Windows:
 
 For Installing this app on Mac :-
 
-1. Visit the [Releases](https://github.com/agam778/MS-365-Electron/releases) page
+1. Visit the [Releases](https://DaanSelen/MS-365-Electron/releases) page
 2. Scroll down and click the `.dmg` file (according to your system architecture).
 3. After it downloads, click on the file and mount it on your system. Now drag my app to the Applications Folder (There will be a shortcut in the opened window too) and your app will be installed. Open from Launchpad and enjoy.
 
@@ -114,12 +114,12 @@ For Installing this app on Mac :-
 
 <details>
 <summary>Click to expand</summary>
-<img src="https://github.com/agam778/MS-365-Electron/assets/68941022/fcc24409-7e4b-4802-9f3f-a7c420c0edcb" alt="macOS Preview">
+<img src="https://DaanSelen/MS-365-Electron/assets/68941022/fcc24409-7e4b-4802-9f3f-a7c420c0edcb" alt="macOS Preview">
 </details>
 
 ## ⚠️ Unable to launch the app
 As MS-365-Electron is not signed, you might face this error:<br>
-<img width="372" src="https://github.com/agam778/MS-365-Electron/assets/68941022/c44c8eb8-055e-48f4-be5f-5479a70228a1">
+<img width="372" src="https://DaanSelen/MS-365-Electron/assets/68941022/c44c8eb8-055e-48f4-be5f-5479a70228a1">
 - For Intel Macs: Open the "Applications" Folder in Finder, right click "MS-365-Electron" and then click Open
 - For M series Macs: 
   - Make sure you have placed the app in Applications
@@ -138,7 +138,7 @@ As MS-365-Electron is not signed, you might face this error:<br>
 
 For Installing in Ubuntu/Debian based distribution :- 
 
-1) Visit the [Releases](https://github.com/agam778/MS-365-Electron/releases) page
+1) Visit the [Releases](https://DaanSelen/MS-365-Electron/releases) page
 2) Scroll down and click the `.deb` file to download it.
 3) Then run the deb file and click Install to install the App. Launch it from the Applications Menu.
 
@@ -146,7 +146,7 @@ For Installing in Ubuntu/Debian based distribution :-
 
 For Installing in Red Hat/Fedora based distribution :- 
 
-1) Visit the [Releases](https://github.com/agam778/MS-365-Electron/releases) page
+1) Visit the [Releases](https://DaanSelen/MS-365-Electron/releases) page
 2) Scroll down and click the `.rpm` file to download it.
 3) Then run the rpm file and click Install to install the App. Launch it from the Applications Menu.
 
@@ -210,7 +210,7 @@ To build the app locally:<br>
 Run the following commands to clone the repository and install the dependencies
 
 ```bash
-git clone https://github.com/agam778/MS-365-Electron.git
+git clone https://DaanSelen/MS-365-Electron.git
 cd MS-365-Electron
 yarn install
 ```

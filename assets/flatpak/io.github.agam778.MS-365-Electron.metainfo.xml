@@ -38,6 +38,6 @@
         <value key="GnomeSoftware::popular-background">https://dashboard.snapcraft.io/site_media/appmedia/2022/05/Untitled_design1.png</value>
     </metadata>
 
-    <url type="homepage">https://github.com/agam778/MS-365-Electron/</url>
-    <url type="bugtracker">https://github.com/agam778/MS-365-Electron/issues</url>
+    <url type="homepage">https://DaanSelen/MS-365-Electron/</url>
+    <url type="bugtracker">https://DaanSelen/MS-365-Electron/issues</url>
 </component>
