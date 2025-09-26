@@ -20,11 +20,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      - name: Install yarn
-        run: |
-          curl -fsSL -o ./.bin/yarn ${{ env.YARN_URL }}
-          chmod +x ./.bin/yarn
-          echo "./.bin" >> $GITHUB_PATH
+      - name: Enable Corepack before setting up Node
+        run: corepack enable
 
       - name: Install Node.js, NPM
         uses: actions/setup-node@v5
