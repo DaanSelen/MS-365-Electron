@@ -55,7 +55,7 @@ jobs:
 
       - name: Build the app
         run: |
-          yarn build
+          DEBUG=* yarn build
 
       - name: Release
         uses: akkuman/gitea-release-action@v1
