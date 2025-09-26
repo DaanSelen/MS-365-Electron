@@ -47,7 +47,10 @@ jobs:
             fakeroot \
             xvfb
 
-          flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          flatpak remote-add --system \
+            --assumeyes \
+            --if-not-exists \
+            flathub https://flathub.org/repo/flathub.flatpakrepo
 
       - name: Install dependencies
         run: |
