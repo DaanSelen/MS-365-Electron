@@ -9,7 +9,9 @@ on:
       - '*'
 
 env:
+  VERSION: "v2.1.1"
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  YARN_URL: "https://github.com/yarnpkg/yarn/releases/download/v1.22.22/yarn-1.22.22.js"
 
 jobs:
   action-release:
@@ -18,16 +20,36 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      - name: Install Node.js, NPM and Yarn
+      - name: Install yarn
+        run: |
+          curl -fsSL -o /bin/yarn ${{ env.YARN_URL }}
+          chmod +x /bin/yarn
+
+      - name: Install Node.js, NPM
         uses: actions/setup-node@v5
         with:
           node-version: latest
 
-      - name: Build the app
+      - name: Install dependencies
         run: |
           yarn install
+
+      - name: Build the app
+        run: |
           yarn build
-        shell: bash
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
+        with:
+          files: |
+            ./release/*.deb
+            ./release/latest-linux.yml
+          make_latest: "true"
+          generate_release_notes: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: "DaanSelen/MS-365-Electron"
+          tag_name: "${{ env.VERSION }}"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
