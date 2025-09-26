@@ -1,6 +1,6 @@
 import { app, Menu, BrowserWindow, dialog, nativeImage, shell } from "electron";
 import { clearActivity, setActivity, loginToRPC } from "./config/rpc.js";
-import { ElectronBlocker } from "@cliqz/adblocker-electron";
+import { ElectronBlocker } from "@ghostery/adblocker-electron";
 import { setValue, getValue } from "./config/store.js";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
