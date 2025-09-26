@@ -1,7 +1,3 @@
-<p align="center"><img src="https://DaanSelen/MS-365-Electron/blob/main/assets/banner.png?raw=true" alt="Credits: "></p>
-<p align="center">Thanks to <a href="https://t.me/NextWorksGFX">@NextWorksGFX</a> for this amazing banner!</p>
-<p align="center">Unofficial Microsoft 365 Web Desktop Wrapper made with Electron</p>
-
 <p align="center">
 <a href="https://youtube.com/AgamsTechTricks">
  <img align="center" src="https://img.shields.io/badge/Made%20With%20♥-by%20Agam-orange?style=style=flat">   

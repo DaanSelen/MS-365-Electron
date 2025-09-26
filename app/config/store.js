@@ -20,9 +20,9 @@ export function getValueOrDefault(key, defaultValue) {
   return value;
 }
 
-getValueOrDefault("enterprise-or-normal", "?auth=1");
-getValueOrDefault("websites-in-new-window", "true");
-getValueOrDefault("autohide-menubar", "false");
+getValueOrDefault("enterprise-or-normal", "?auth=2");
+getValueOrDefault("websites-in-new-window", "false");
+getValueOrDefault("autohide-menubar", "true");
 getValueOrDefault("useragentstring", useragents.Windows);
 getValueOrDefault("discordrpcstatus", "false");
 getValueOrDefault("blockadsandtrackers", "false");
@@ -32,7 +32,7 @@ getValueOrDefault("custompage", "home");
 getValueOrDefault("windowWidth", 0.71);
 getValueOrDefault("windowHeight", 0.74);
 getValueOrDefault("customWindowSize", false);
-getValueOrDefault("externalLinks", "true");
+getValueOrDefault("externalLinks", "false");
 
 if (getValue("enterprise-or-normal") === "https://microsoft365.com/?auth=1") {
   setValue("enterprise-or-normal", "?auth=1");

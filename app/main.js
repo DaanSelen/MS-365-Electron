@@ -1,12 +1,11 @@
 import { app, Menu, BrowserWindow, dialog, nativeImage, shell } from "electron";
-import { clearActivity, setActivity, loginToRPC } from "./config/rpc.js";
 import { ElectronBlocker } from "@ghostery/adblocker-electron";
-import { setValue, getValue } from "./config/store.js";
+import { getValue } from "./config/store.js";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
 import { getScreenWidth, getScreenHeight } from "./config/dimensions.js";
-import Windows from "./useragents.json" with { type: "json" };
+import Windows from "./useragents.json" with { type: "json" }
 import checkInternetConnected from "check-internet-connected";
 import domains from "./domains.json" with { type: "json" };
 import contextMenu from "electron-context-menu";
@@ -62,13 +61,15 @@ function createWindow() {
   win.webContents.on("did-finish-load", () => {
     splash.destroy();
     win.show();
-    if (getValue("discordrpcstatus") === "true") {
-      setActivity(`On "${win.webContents.getTitle()}"`);
-    }
     if (getValue("blockadsandtrackers") === "true") {
       ElectronBlocker.fromPrebuiltAdsAndTracking(fetch).then((blocker) => {
-        blocker.enableBlockingInSession(win.webContents.session);
-      });
+        // Only enable if not already enabled
+        try {
+          blocker.enableBlockingInSession(win.webContents.session);
+        } catch (e) {
+          console.warn("Adblocker already enabled for this session");
+        }
+      }).catch(console.error);
     }
   });
 }
@@ -128,14 +129,8 @@ app.on("web-contents-created", (event, contents) => {
           if (getValue("websites-in-new-window") === "false") {
             if (url.includes("page=Download")) return { action: "allow" };
             BrowserWindow.getFocusedWindow().loadURL(url).catch();
-            if (getValue("discordrpcstatus") === "true") {
-              setActivity(`On "${BrowserWindow.getFocusedWindow().webContents.getTitle()}"`);
-            }
             return { action: "deny" };
           } else {
-            if (getValue("discordrpcstatus") === "true") {
-              setActivity(`On "${BrowserWindow.getFocusedWindow().webContents.getTitle()}"`);
-            }
             return {
               action: "allow",
               overrideBrowserWindowOptions: {
@@ -155,14 +150,8 @@ app.on("web-contents-created", (event, contents) => {
       if (getValue("websites-in-new-window") === "false") {
         if (url.includes("page=Download")) return { action: "allow" };
         BrowserWindow.getFocusedWindow().loadURL(url).catch();
-        if (getValue("discordrpcstatus") === "true") {
-          setActivity(`On "${BrowserWindow.getFocusedWindow().webContents.getTitle()}"`);
-        }
         return { action: "deny" };
       } else {
-        if (getValue("discordrpcstatus") === "true") {
-          setActivity(`On "${BrowserWindow.getFocusedWindow().webContents.getTitle()}"`);
-        }
         return {
           action: "allow",
           overrideBrowserWindowOptions: {
@@ -346,15 +335,15 @@ app.on("browser-window-created", (event, window) => {
   } else {
     window.setAutoHideMenuBar(false);
   }
-  window.webContents.on("did-finish-load", () => {
-    if (getValue("discordrpcstatus") === "true") {
-      setActivity(`On "${window.webContents.getTitle()}"`);
-    }
-  });
   if (getValue("blockadsandtrackers") === "true") {
     ElectronBlocker.fromPrebuiltAdsAndTracking(fetch).then((blocker) => {
-      blocker.enableBlockingInSession(window.webContents.session);
-    });
+      // Only enable if not already enabled
+      try {
+        blocker.enableBlockingInSession(win.webContents.session);
+      } catch (e) {
+        console.warn("Adblocker already enabled for this session");
+      }
+    }).catch(console.error);
   }
 });
 
@@ -365,7 +354,6 @@ app.on("window-all-closed", () => {
   if (process.platform === "darwin") {
     app.dock.setIcon(null);
   }
-  clearActivity();
 });
 
 app.on("activate", () => {
@@ -391,9 +379,5 @@ app.on("ready", function () {
   });
   if (getValue("autoupdater") === "true") {
     autoUpdater.checkForUpdatesAndNotify();
-  }
-  if (getValue("discordrpcstatus") === "true") {
-    loginToRPC();
-    setActivity(`Opening Microsoft 365...`);
   }
 });

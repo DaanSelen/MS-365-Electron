@@ -1,45 +1,13 @@
-import { dialog, BrowserWindow, ShareMenu, clipboard } from "electron";
+import { dialog, BrowserWindow, ShareMenu } from "electron";
 import { getValue, setValue } from "./store.js";
 import { ElectronBlocker } from "@ghostery/adblocker-electron";
-import { clearActivity, setActivity } from "./rpc.js";
 import prompt from "electron-prompt";
 
 import { getScreenWidth, getScreenHeight } from "./dimensions.js";
-import { checkForUpdates, openExternalLink, openLogsFolder, setUserAgent } from "./utils.js";
+import { setUserAgent } from "./utils.js";
 import useragents from "../useragents.json" with { type: "json" };
 
 const commonPreferencesSubmenu = [
-  {
-    label: "Open MS 365 with Personal Account",
-    type: "radio",
-    click() {
-      setValue("enterprise-or-normal", "?auth=1");
-      dialog.showMessageBoxSync({
-        type: "info",
-        title: "MS 365 with Personal Account",
-        message:
-          "MS 365 will now open with your Personal Account.\n\nPlease restart the app to apply the changes.",
-        buttons: ["OK"],
-      });
-    },
-    checked: getValue("enterprise-or-normal") === "?auth=1",
-  },
-  {
-    label: "Open MS 365 with Work/School Account",
-    type: "radio",
-    click() {
-      setValue("enterprise-or-normal", "?auth=2");
-      dialog.showMessageBoxSync({
-        type: "info",
-        title: "MS 365 with Work/School Account",
-        message:
-          "MS 365 will now open with your Work/School account.\n\nPlease restart the app to apply the changes.",
-        buttons: ["OK"],
-      });
-    },
-    checked: getValue("enterprise-or-normal") === "?auth=2",
-  },
-  { type: "separator" },
   {
     label: "Open Websites in New Windows",
     type: "radio",
@@ -296,37 +264,6 @@ const commonPreferencesSubmenu = [
   },
   { type: "separator" },
   {
-    label: "Enable Discord RPC",
-    type: "checkbox",
-    click: () => {
-      if (getValue("discordrpcstatus") === "true") {
-        setValue("discordrpcstatus", "false");
-        dialog.showMessageBoxSync({
-          type: "info",
-          title: "Discord RPC",
-          message: "Discord RPC has been disabled.",
-          buttons: ["OK"],
-        });
-        clearActivity();
-        return;
-      } else if (
-        getValue("discordrpcstatus") === "false" ||
-        getValue("discordrpcstatus") === undefined
-      ) {
-        setValue("discordrpcstatus", "true");
-        dialog.showMessageBoxSync({
-          type: "info",
-          title: "Discord RPC",
-          message: "Discord RPC has been enabled.",
-          buttons: ["OK"],
-        });
-        setActivity(`On ${BrowserWindow.getFocusedWindow().webContents.getTitle()}`);
-        return;
-      }
-    },
-    checked: getValue("discordrpcstatus") === "true",
-  },
-  {
     label: "Enable Auto Updates",
     type: "checkbox",
     click: () => {
@@ -425,20 +362,6 @@ const commonPreferencesSubmenu = [
     },
     checked: getValue("blockadsandtrackers") === "true",
   },
-  {
-    label: "Open External Links in Default Browser",
-    type: "checkbox",
-    click: () => {
-      setValue("externalLinks", getValue("externalLinks") === "true" ? "false" : "true");
-      dialog.showMessageBoxSync({
-        type: "info",
-        title: "External Links in Default Browser",
-        message: `External links will now open in ${getValue("externalLinks") === "true" ? "your default browser" : "MS-365-Electron"}`,
-        buttons: ["OK"],
-      });
-    },
-    checked: getValue("externalLinks") === "true",
-  },
   { type: "separator" },
   {
     label: "Windows User-Agent String",
@@ -488,25 +411,6 @@ const menulayout = [
     submenu: [
       ...(process.platform === "darwin"
         ? [
-            {
-              label: "About MS-365-Electron",
-              click: async () => {
-                await openExternalLink("https://github.com/DaanSelen/MS-365-Electron");
-              },
-            },
-            {
-              label: "Check for Updates",
-              click: async () => {
-                await checkForUpdates();
-              },
-            },
-            { type: "separator" },
-            {
-              label: "Open Logs Folder",
-              click: async () => {
-                await openLogsFolder();
-              },
-            },
             { type: "separator" },
             {
               label: "Preferences",
@@ -521,25 +425,6 @@ const menulayout = [
             { label: "Quit MS-365-Electron", role: "quit" },
           ]
         : [
-            {
-              label: "About MS-365-Electron",
-              click: async () => {
-                await openExternalLink("https://github.com/DaanSelen/MS-365-Electron");
-              },
-            },
-            {
-              label: "Check for Updates...",
-              click: async () => {
-                await checkForUpdates();
-              },
-            },
-            { type: "separator" },
-            {
-              label: "Open Logs Folder",
-              click: async () => {
-                await openLogsFolder();
-              },
-            },
             { type: "separator" },
             ...commonPreferencesSubmenu,
           ]),
@@ -548,39 +433,6 @@ const menulayout = [
   {
     label: "File",
     submenu: [
-      {
-        label: "New Window (Personal)",
-        accelerator: "CmdOrCtrl+N",
-        click: () => {
-          let newWindow = new BrowserWindow({
-            width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-            height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-            webPreferences: {
-              nodeIntegration: true,
-              devTools: true,
-              partition: "persist:personal",
-            },
-          });
-          newWindow.loadURL(`https://microsoft365.com/${getValue("custompage")}/?auth=1`);
-        },
-      },
-      {
-        label: "New Window (Work/School)",
-        accelerator: "CmdOrCtrl+Shift+N",
-        click: () => {
-          let newWindow = new BrowserWindow({
-            width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-            height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-            webPreferences: {
-              nodeIntegration: true,
-              devTools: true,
-              partition: "persist:work",
-            },
-          });
-          newWindow.loadURL(`https://microsoft365.com/${getValue("custompage")}/?auth=2`);
-        },
-      },
-      { type: "separator" },
       {
         label: "Close Window",
         accelerator: "CmdOrCtrl+W",
@@ -602,14 +454,6 @@ const menulayout = [
         },
       },
       { type: "separator" },
-      {
-        label: "Copy URL to Clipboard",
-        accelerator: "CmdOrCtrl+Shift+C",
-        click: () => {
-          const url = BrowserWindow.getFocusedWindow().webContents.getURL();
-          clipboard.writeText(url);
-        },
-      },
       ...(process.platform === "darwin"
         ? [
             {
@@ -818,158 +662,6 @@ const menulayout = [
               BrowserWindow.getFocusedWindow().loadURL(
                 "https://microsoft365.com/launch/powerpoint?auth=1"
               );
-            }
-          }
-        },
-      },
-      {
-        label: "Outlook",
-        click: () => {
-          if (getValue("enterprise-or-normal") === "?auth=2") {
-            if (getValue("websites-in-new-window") === "true") {
-              let outlookwindow = new BrowserWindow({
-                width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-                height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-                webPreferences: {
-                  nodeIntegration: false,
-                  contextIsolation: true,
-                  partition: "persist:work",
-                },
-              });
-              outlookwindow.loadURL("https://outlook.office.com/mail/");
-            } else {
-              BrowserWindow.getFocusedWindow().loadURL("https://outlook.office.com/mail/");
-            }
-          } else if (getValue("enterprise-or-normal") === "?auth=1") {
-            if (getValue("websites-in-new-window") === "true") {
-              let outlookwindow = new BrowserWindow({
-                width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-                height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-                webPreferences: {
-                  nodeIntegration: false,
-                  contextIsolation: true,
-                  partition: "persist:personal",
-                },
-              });
-              outlookwindow.loadURL("https://office.live.com/start/Outlook.aspx");
-            } else {
-              BrowserWindow.getFocusedWindow().loadURL(
-                "https://office.live.com/start/Outlook.aspx"
-              );
-            }
-          }
-        },
-      },
-      {
-        label: "OneDrive",
-        click: () => {
-          if (getValue("enterprise-or-normal") === "?auth=2") {
-            if (getValue("websites-in-new-window") === "true") {
-              let onedrivewindow = new BrowserWindow({
-                width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-                height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-                webPreferences: {
-                  nodeIntegration: false,
-                  contextIsolation: true,
-                  partition: "persist:work",
-                },
-              });
-              onedrivewindow.loadURL("https://microsoft365.com/launch/onedrive?auth=2");
-            } else {
-              BrowserWindow.getFocusedWindow().loadURL(
-                "https://microsoft365.com/launch/onedrive?auth=2"
-              );
-            }
-          } else if (getValue("enterprise-or-normal") === "?auth=1") {
-            if (getValue("websites-in-new-window") === "true") {
-              let onedrivewindow = new BrowserWindow({
-                width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-                height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-                webPreferences: {
-                  nodeIntegration: false,
-                  contextIsolation: true,
-                  partition: "persist:personal",
-                },
-              });
-              onedrivewindow.loadURL("https://microsoft365.com/launch/onedrive?auth=1");
-            } else {
-              BrowserWindow.getFocusedWindow().loadURL(
-                "https://microsoft365.com/launch/onedrive?auth=1"
-              );
-            }
-          }
-        },
-      },
-      {
-        label: "OneNote",
-        click: () => {
-          if (getValue("enterprise-or-normal") === "?auth=2") {
-            if (getValue("websites-in-new-window") === "true") {
-              let onenotewindow = new BrowserWindow({
-                width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-                height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-                webPreferences: {
-                  nodeIntegration: false,
-                  contextIsolation: true,
-                  partition: "persist:work",
-                },
-              });
-              onenotewindow.loadURL("https://www.microsoft365.com/launch/onenote?auth=2");
-            } else {
-              BrowserWindow.getFocusedWindow().loadURL(
-                "https://www.microsoft365.com/launch/onenote?auth=2"
-              );
-            }
-          } else if (getValue("enterprise-or-normal") === "?auth=1") {
-            if (getValue("websites-in-new-window") === "true") {
-              let onenotewindow = new BrowserWindow({
-                width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-                height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-                webPreferences: {
-                  nodeIntegration: false,
-                  contextIsolation: true,
-                  partition: "persist:personal",
-                },
-              });
-              onenotewindow.loadURL("https://www.onenote.com/notebooks?auth=1");
-            } else {
-              BrowserWindow.getFocusedWindow().loadURL("https://www.onenote.com/notebooks?auth=1");
-            }
-          }
-        },
-      },
-      {
-        label: "All Apps",
-        click: () => {
-          if (getValue("enterprise-or-normal") === "?auth=2") {
-            if (getValue("websites-in-new-window") === "true") {
-              let allappswindow = new BrowserWindow({
-                width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-                height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-                webPreferences: {
-                  nodeIntegration: false,
-                  contextIsolation: true,
-                  partition: "persist:work",
-                },
-              });
-              allappswindow.loadURL("https://www.microsoft365.com/apps?auth=2");
-            } else {
-              BrowserWindow.getFocusedWindow().loadURL("https://www.microsoft365.com/apps?auth=2");
-            }
-          } else if (getValue("enterprise-or-normal") === "?auth=1") {
-            if (getValue("websites-in-new-window") === "true") {
-              let allappswindow = new BrowserWindow({
-                width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-                height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-                webPreferences: {
-                  nodeIntegration: false,
-                  contextIsolation: true,
-                  partition: "persist:personal",
-                },
-              });
-              allappswindow.loadURL("https://www.microsoft365.com/apps?auth=1");
-            } else {
-              BrowserWindow.getFocusedWindow().loadURL("https://www.microsoft365.com/apps?auth=1");
             }
           }
         },

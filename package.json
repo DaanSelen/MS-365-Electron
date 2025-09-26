@@ -1,28 +1,29 @@
 {
+  "private": true,
   "resolutions": {
     "@electron/node-gyp": "https://github.com/electron/node-gyp.git"
   },
-  "name": "ms-365-electron",
-  "version": "2.1.1",
+  "name": "ms365-electron",
+  "version": "0.1.0",
   "type": "module",
-  "description": "Unofficial Microsoft 365 Web Desktop Wrapper made with Electron",
+  "description": "Systemec Microsoft 365 Web Desktop Wrapper made with Electron",
   "main": "./app/main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/DaanSelen/MS-365-Electron.git"
+    "url": "https://github.com/DaanSelen/ms365-electron-sandbox"
   },
   "author": {
-    "name": "Agampreet Singh",
-    "email": "agam778@zohomail.in",
-    "url": "https://agam778.is-a.dev/"
+    "name": "Daan Selen",
+    "email": "dselen@systemec.nl",
+    "url": "https://systemec.nl"
   },
   "build": {
     "extraFiles": [
       "LICENSE"
     ],
-    "appId": "com.daanselen.ms-365-electron",
-    "productName": "MS-365-Electron",
-    "artifactName": "MS-365-Electron-v${version}-${os}-${arch}.${ext}",
+    "appId": "com.daanselen.ms365-electron",
+    "productName": "ms365-electron",
+    "artifactName": "ms365-electron-v${version}-${os}-${arch}.${ext}",
     "mac": {
       "identity": "null",
       "category": "public.app-category.office",
@@ -40,19 +41,15 @@
       ],
       "icon": "./assets/icons/win/icon.ico"
     },
-    "nsis": {
-      "oneClick": false,
-      "perMachine": false,
-      "allowToChangeInstallationDirectory": false,
-      "license": "LICENSE"
-    },
     "linux": {
       "category": "Office",
       "icon": "./assets/icons/png",
-      "executableName": "ms-365-electron",
+      "executableName": "ms365-electron",
       "maintainer": "Daan Selen <dselen@nerthus.nl>",
       "target": [
-        "deb"
+        "deb",
+        "rpm",
+        "flatpak"
       ]
     },
     "directories": {
@@ -69,13 +66,10 @@
   "devDependencies": {
     "electron": "^38.1.2",
     "electron-builder": "^26.0.20",
-    "eslint": "^9.36.0",
-    "prettier": "^3.6.2",
-    "prettier-eslint": "^16.4.2"
+    "@malept/flatpak-bundler": "0.4.0"
   },
   "dependencies": {
     "@ghostery/adblocker-electron": "^2.11.6",
-    "@xhayper/discord-rpc": "^1.3.0",
     "axios": "^1.12.2",
     "check-internet-connected": "^2.0.6",
     "cross-fetch": "^4.1.0",

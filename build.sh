@@ -1,1 +1,1 @@
-NODE_OPTIONS=--no-deprecation npm run build
+NODE_OPTIONS=--no-deprecation yarn build
