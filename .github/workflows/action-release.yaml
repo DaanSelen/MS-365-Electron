@@ -22,9 +22,9 @@ jobs:
 
       - name: Install yarn
         run: |
-          curl -fsSL -o ~/bin/yarn ${{ env.YARN_URL }}
-          chmod +x ~/bin/yarn
-          echo "$HOME/bin" >> $GITHUB_PATH
+          curl -fsSL -o ./.bin/yarn ${{ env.YARN_URL }}
+          chmod +x ./.bin/yarn
+          echo "./.bin" >> $GITHUB_PATH
 
       - name: Install Node.js, NPM
         uses: actions/setup-node@v5
