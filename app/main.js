@@ -389,7 +389,7 @@ app.on("ready", function () {
       console.log(response);
     });
   });
-  if (getValue("autoupdater") === "false") {
+  if (getValue("autoupdater") === "true") {
     autoUpdater.checkForUpdatesAndNotify();
   }
   if (getValue("discordrpcstatus") === "true") {
