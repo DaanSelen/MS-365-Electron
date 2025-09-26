@@ -397,11 +397,11 @@ const commonPreferencesSubmenu = [
   { type: "separator" },
   ...(process.platform === "win32" || process.platform === "linux"
     ? [
-        {
-          role: "quit",
-          accelerator: "Ctrl+Q",
-        },
-      ]
+      {
+        role: "quit",
+        accelerator: "Ctrl+Q",
+      },
+    ]
     : []),
 ];
 
@@ -411,23 +411,23 @@ const menulayout = [
     submenu: [
       ...(process.platform === "darwin"
         ? [
-            { type: "separator" },
-            {
-              label: "Preferences",
-              submenu: commonPreferencesSubmenu,
-            },
-            { role: "services" },
-            { type: "separator" },
-            { label: "Hide MS-365-Electron", role: "hide" },
-            { role: "hideOthers" },
-            { role: "unhide" },
-            { type: "separator" },
-            { label: "Quit MS-365-Electron", role: "quit" },
-          ]
+          { type: "separator" },
+          {
+            label: "Preferences",
+            submenu: commonPreferencesSubmenu,
+          },
+          { role: "services" },
+          { type: "separator" },
+          { label: "Hide MS-365-Electron", role: "hide" },
+          { role: "hideOthers" },
+          { role: "unhide" },
+          { type: "separator" },
+          { label: "Quit MS-365-Electron", role: "quit" },
+        ]
         : [
-            { type: "separator" },
-            ...commonPreferencesSubmenu,
-          ]),
+          { type: "separator" },
+          ...commonPreferencesSubmenu,
+        ]),
     ],
   },
   {
@@ -456,17 +456,17 @@ const menulayout = [
       { type: "separator" },
       ...(process.platform === "darwin"
         ? [
-            {
-              label: "Share...",
-              click: () => {
-                let sharemenu = new ShareMenu({
-                  urls: [BrowserWindow.getFocusedWindow().webContents.getURL()],
-                  texts: [BrowserWindow.getFocusedWindow().getTitle()],
-                });
-                sharemenu.popup();
-              },
+          {
+            label: "Share...",
+            click: () => {
+              let sharemenu = new ShareMenu({
+                urls: [BrowserWindow.getFocusedWindow().webContents.getURL()],
+                texts: [BrowserWindow.getFocusedWindow().getTitle()],
+              });
+              sharemenu.popup();
             },
-          ]
+          },
+        ]
         : []),
     ],
   },
@@ -481,15 +481,15 @@ const menulayout = [
       { role: "paste" },
       ...(process.platform === "darwin"
         ? [
-            { role: "pasteAndMatchStyle" },
-            { role: "delete" },
-            { role: "selectAll" },
-            { type: "separator" },
-            {
-              label: "Speech",
-              submenu: [{ role: "startSpeaking" }, { role: "stopSpeaking" }],
-            },
-          ]
+          { role: "pasteAndMatchStyle" },
+          { role: "delete" },
+          { role: "selectAll" },
+          { type: "separator" },
+          {
+            label: "Speech",
+            submenu: [{ role: "startSpeaking" }, { role: "stopSpeaking" }],
+          },
+        ]
         : [{ role: "delete" }, { type: "separator" }, { role: "selectAll" }]),
     ],
   },
@@ -549,120 +549,63 @@ const menulayout = [
       {
         label: "Word",
         click: () => {
-          if (getValue("enterprise-or-normal") === "?auth=2") {
-            if (getValue("websites-in-new-window") === "true") {
-              let wordwindow = new BrowserWindow({
-                width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-                height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-                webPreferences: {
-                  nodeIntegration: false,
-                  contextIsolation: true,
-                  partition: "persist:work",
-                },
-              });
-              wordwindow.loadURL("https://microsoft365.com/launch/word?auth=2");
-            } else {
-              BrowserWindow.getFocusedWindow().loadURL(
-                "https://microsoft365.com/launch/word?auth=2"
-              );
-            }
-          } else if (getValue("enterprise-or-normal") === "?auth=1") {
-            if (getValue("websites-in-new-window") === "true") {
-              let wordwindow = new BrowserWindow({
-                width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-                height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-                webPreferences: {
-                  nodeIntegration: false,
-                  contextIsolation: true,
-                  partition: "persist:personal",
-                },
-              });
-              wordwindow.loadURL("https://microsoft365.com/launch/word?auth=1");
-            } else {
-              BrowserWindow.getFocusedWindow().loadURL(
-                "https://microsoft365.com/launch/word?auth=1"
-              );
-            }
+          if (getValue("websites-in-new-window") === "true") {
+            let wordwindow = new BrowserWindow({
+              width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
+              height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
+              webPreferences: {
+                nodeIntegration: false,
+                contextIsolation: true,
+                partition: "persist:work",
+              },
+            });
+            wordwindow.loadURL("https://microsoft365.com/launch/word?auth=2");
+          } else {
+            BrowserWindow.getFocusedWindow().loadURL(
+              "https://microsoft365.com/launch/word?auth=2"
+            );
           }
         },
       },
       {
         label: "Excel",
         click: () => {
-          if (getValue("enterprise-or-normal") === "?auth=2") {
-            if (getValue("websites-in-new-window") === "true") {
-              let excelwindow = new BrowserWindow({
-                width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-                height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-                webPreferences: {
-                  nodeIntegration: false,
-                  contextIsolation: true,
-                  partition: "persist:work",
-                },
-              });
-              excelwindow.loadURL("https://microsoft365.com/launch/excel?auth=2");
-            } else {
-              BrowserWindow.getFocusedWindow().loadURL(
-                "https://microsoft365.com/launch/excel?auth=2"
-              );
-            }
-          } else if (getValue("enterprise-or-normal") === "?auth=1") {
-            if (getValue("websites-in-new-window") === "true") {
-              let excelwindow = new BrowserWindow({
-                width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-                height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-                webPreferences: {
-                  nodeIntegration: false,
-                  contextIsolation: true,
-                  partition: "persist:personal",
-                },
-              });
-              excelwindow.loadURL("https://microsoft365.com/launch/excel?auth=1");
-            } else {
-              BrowserWindow.getFocusedWindow().loadURL(
-                "https://microsoft365.com/launch/excel?auth=1"
-              );
-            }
+          if (getValue("websites-in-new-window") === "true") {
+            let excelwindow = new BrowserWindow({
+              width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
+              height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
+              webPreferences: {
+                nodeIntegration: false,
+                contextIsolation: true,
+                partition: "persist:work",
+              },
+            });
+            excelwindow.loadURL("https://microsoft365.com/launch/excel?auth=2");
+          } else {
+            BrowserWindow.getFocusedWindow().loadURL(
+              "https://microsoft365.com/launch/excel?auth=2"
+            );
           }
         },
       },
       {
         label: "PowerPoint",
         click: () => {
-          if (getValue("enterprise-or-normal") === "?auth=2") {
-            if (getValue("websites-in-new-window") === "true") {
-              let powerpointwindow = new BrowserWindow({
-                width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-                height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-                webPreferences: {
-                  nodeIntegration: false,
-                  contextIsolation: true,
-                  partition: "persist:work",
-                },
-              });
-              powerpointwindow.loadURL("https://microsoft365.com/launch/powerpoint?auth=2");
-            } else {
-              BrowserWindow.getFocusedWindow().loadURL(
-                "https://microsoft365.com/launch/powerpoint?auth=2"
-              );
-            }
-          } else if (getValue("enterprise-or-normal") === "?auth=1") {
-            if (getValue("websites-in-new-window") === "true") {
-              let powerpointwindow = new BrowserWindow({
-                width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
-                height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
-                webPreferences: {
-                  nodeIntegration: false,
-                  contextIsolation: true,
-                  partition: "persist:personal",
-                },
-              });
-              powerpointwindow.loadURL("https://microsoft365.com/launch/powerpoint?auth=1");
-            } else {
-              BrowserWindow.getFocusedWindow().loadURL(
-                "https://microsoft365.com/launch/powerpoint?auth=1"
-              );
-            }
+          if (getValue("websites-in-new-window") === "true") {
+            let powerpointwindow = new BrowserWindow({
+              width: Math.round(getScreenWidth() * (getValue("windowWidth") - 0.07)),
+              height: Math.round(getScreenHeight() * (getValue("windowHeight") - 0.07)),
+              webPreferences: {
+                nodeIntegration: false,
+                contextIsolation: true,
+                partition: "persist:work",
+              },
+            });
+            powerpointwindow.loadURL("https://microsoft365.com/launch/powerpoint?auth=2");
+          } else {
+            BrowserWindow.getFocusedWindow().loadURL(
+              "https://microsoft365.com/launch/powerpoint?auth=2"
+            );
           }
         },
       },
@@ -678,38 +621,38 @@ const menulayout = [
         : [{ role: "close" }]),
       ...(process.platform === "win32" || process.platform === "linux"
         ? [
-            { type: "separator" },
-            {
-              label: "Show Menu Bar",
-              type: "radio",
-              click: () => {
-                setValue("autohide-menubar", "false");
-                dialog.showMessageBoxSync({
-                  type: "info",
-                  title: "Menu Bar Settings",
-                  message:
-                    "Menu will be visible now. Please restart the app for changes to take effect.",
-                  buttons: ["OK"],
-                });
-              },
-              checked: getValue("autohide-menubar") === "false",
+          { type: "separator" },
+          {
+            label: "Show Menu Bar",
+            type: "radio",
+            click: () => {
+              setValue("autohide-menubar", "false");
+              dialog.showMessageBoxSync({
+                type: "info",
+                title: "Menu Bar Settings",
+                message:
+                  "Menu will be visible now. Please restart the app for changes to take effect.",
+                buttons: ["OK"],
+              });
             },
-            {
-              label: "Hide Menu Bar (ALT to show)",
-              type: "radio",
-              click: () => {
-                setValue("autohide-menubar", "true");
-                dialog.showMessageBoxSync({
-                  type: "info",
-                  title: "Menu Bar Settings",
-                  message:
-                    "Menu bar will be automatically hidden now. Please restart the app for changes to take effect.",
-                  buttons: ["OK"],
-                });
-              },
-              checked: getValue("autohide-menubar") === "true",
+            checked: getValue("autohide-menubar") === "false",
+          },
+          {
+            label: "Hide Menu Bar (ALT to show)",
+            type: "radio",
+            click: () => {
+              setValue("autohide-menubar", "true");
+              dialog.showMessageBoxSync({
+                type: "info",
+                title: "Menu Bar Settings",
+                message:
+                  "Menu bar will be automatically hidden now. Please restart the app for changes to take effect.",
+                buttons: ["OK"],
+              });
             },
-          ]
+            checked: getValue("autohide-menubar") === "true",
+          },
+        ]
         : []),
     ],
   },

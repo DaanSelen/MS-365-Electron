@@ -20,7 +20,7 @@ export function getValueOrDefault(key, defaultValue) {
   return value;
 }
 
-getValueOrDefault("enterprise-or-normal", "?auth=2");
+//getValueOrDefault("enterprise-or-normal", "?auth=2");
 getValueOrDefault("websites-in-new-window", "false");
 getValueOrDefault("autohide-menubar", "true");
 getValueOrDefault("useragentstring", useragents.Windows);
