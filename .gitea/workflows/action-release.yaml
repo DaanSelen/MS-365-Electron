@@ -38,8 +38,14 @@ jobs:
 
           apt-get install -y \
             dpkg \
+            flatpak \
             flatpak-builder \
-            rpm
+            rpm \
+            libglib2.0-dev \
+            wget \
+            curl \
+            fakeroot \
+            xvfb
 
           flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
